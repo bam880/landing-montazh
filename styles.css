@@ -962,3 +962,24 @@ ul { list-style: none; }
 .works__grid--3 { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 240px; }
 @media (max-width: 900px) { .works__grid--3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .works__grid--3 { grid-template-columns: 1fr; grid-auto-rows: 220px; } }
+
+/* Кликабельная карточка услуги (ведёт на отдельную страницу) */
+.card--clickable { cursor: pointer; }
+.card--clickable:hover .card__link { color: var(--orange); }
+.card--clickable:hover .card__link svg { transform: translateX(4px); }
+.card__badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255, 106, 0, 0.1);
+    padding: 5px 11px;
+    border-radius: 100px;
+    transition: var(--transition);
+}
+.card--clickable:hover .card__badge { background: var(--orange); color: #fff; }
