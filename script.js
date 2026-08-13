@@ -72,6 +72,11 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Цель «Вызвать мастера» — клики по кнопкам-призывам (ведут к форме)
+document.querySelectorAll('.js-goal-master').forEach((el) => {
+    el.addEventListener('click', () => ymGoal('call_master'));
+});
+
 // ===== Форма заявки: отправка в WhatsApp + цель form_submit =====
 const WHATSAPP_NUMBER = '77075224869';
 const leadForm = document.getElementById('leadForm');
@@ -79,12 +84,16 @@ const leadForm = document.getElementById('leadForm');
 if (leadForm) {
     const nameInput = document.getElementById('leadName');
     const phoneInput = document.getElementById('leadPhone');
+    const problemInput = document.getElementById('leadProblem');
+    const submitBtn = leadForm.querySelector('.lead-form__btn');
+    const submitLabel = submitBtn ? submitBtn.textContent : 'Отправить заявку';
 
     leadForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const name = nameInput.value.trim();
         const phone = phoneInput.value.trim();
+        const problem = problemInput ? problemInput.value.trim() : '';
         const digits = phone.replace(/\D/g, '');
         let ok = true;
 
@@ -99,21 +108,21 @@ if (leadForm) {
         ymGoal('form_submit');
 
         // Формируем сообщение и открываем WhatsApp
-        const text =
+        let text =
             'Заявка с сайта tehmontazh\n' +
             'Имя: ' + name + '\n' +
             'Телефон: ' + phone;
+        if (problem) text += '\nПроблема: ' + problem;
         const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
         window.open(url, '_blank');
 
         // Успех
         leadForm.classList.add('is-sent');
-        const btn = leadForm.querySelector('.lead-form__btn');
-        if (btn) btn.textContent = '✓ Заявка отправлена';
+        if (submitBtn) submitBtn.textContent = '✓ Заявка отправлена';
         leadForm.reset();
         setTimeout(() => {
             leadForm.classList.remove('is-sent');
-            if (btn) btn.textContent = 'Отправить заявку';
+            if (submitBtn) submitBtn.textContent = submitLabel;
         }, 4000);
     });
 
@@ -122,3 +131,28 @@ if (leadForm) {
         el.addEventListener('input', () => el.classList.remove('is-error'));
     });
 }
+
+// ===== FAQ аккордеон =====
+document.querySelectorAll('.faq__item').forEach((item) => {
+    const q = item.querySelector('.faq__q');
+    const a = item.querySelector('.faq__a');
+    if (!q || !a) return;
+    q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        // Закрываем остальные
+        document.querySelectorAll('.faq__item.open').forEach((other) => {
+            if (other !== item) {
+                other.classList.remove('open');
+                const oa = other.querySelector('.faq__a');
+                if (oa) oa.style.maxHeight = null;
+            }
+        });
+        if (isOpen) {
+            item.classList.remove('open');
+            a.style.maxHeight = null;
+        } else {
+            item.classList.add('open');
+            a.style.maxHeight = a.scrollHeight + 'px';
+        }
+    });
+});

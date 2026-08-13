@@ -983,3 +983,140 @@ ul { list-style: none; }
     transition: var(--transition);
 }
 .card--clickable:hover .card__badge { background: var(--orange); color: #fff; }
+
+/* ============================================================= */
+/* ===== ЛЕНДИНГ «ПРОЧИСТКА КАНАЛИЗАЦИИ» (главная) ============= */
+/* ============================================================= */
+
+/* Hero — две колонки: текст + реальное фото */
+.hero--split .hero__inner { max-width: var(--container); width: 100%; }
+.hero__grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 46px; align-items: center; }
+.hero__media { position: relative; }
+.hero__media img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.hero__media-tag {
+    position: absolute; left: 16px; bottom: 16px;
+    background: rgba(255, 106, 0, 0.95); color: #fff;
+    font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 100px;
+}
+.hero__sub2 { font-size: 15px; color: var(--text-light-muted); font-weight: 600; margin-bottom: 22px; }
+.hero__foot { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 26px; }
+.hero__foot span { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: 15px; }
+.hero__foot svg { width: 20px; height: 20px; color: var(--wa); }
+
+/* Блок проблем */
+.problems { background: var(--surface-2); }
+.problems__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.problem {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 20px; display: flex; gap: 12px; align-items: flex-start;
+    font-weight: 600; font-size: 15.5px; transition: var(--transition);
+}
+.problem:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.problem svg { width: 24px; height: 24px; color: var(--orange); flex-shrink: 0; }
+.problems__foot { text-align: center; margin-top: 34px; }
+.problems__note { color: var(--text-muted); font-size: 17px; margin-bottom: 22px; }
+
+/* Универсальная сетка карточек */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card--plain { padding: 30px 28px; }
+
+/* Оборудование */
+.equip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.equip { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); }
+.equip:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.equip__img { height: 175px; overflow: hidden; }
+.equip__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.equip:hover .equip__img img { transform: scale(1.06); }
+.equip__body { padding: 20px 20px 24px; }
+.equip__title { font-weight: 700; font-size: 17px; margin-bottom: 6px; }
+.equip__text { color: var(--text-muted); font-size: 14px; }
+
+/* Как проходит работа */
+.steps { background: #fff; }
+.steps__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.step__num {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--orange); color: #fff;
+    font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700;
+    display: grid; place-items: center; margin-bottom: 16px;
+    box-shadow: 0 8px 20px rgba(255, 106, 0, 0.3);
+}
+.step__title { font-weight: 700; font-size: 17px; margin-bottom: 6px; }
+.step__text { color: var(--text-muted); font-size: 14.5px; }
+
+/* Реальные работы: До → Процесс → После */
+.ba-case__trio { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.ba-slot__badge--process { background: var(--orange); }
+.ba-case__desc { color: var(--text-muted); font-size: 14px; text-align: center; margin-top: 4px; }
+
+/* Цена */
+.price-hero {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
+    align-items: center; box-shadow: var(--shadow);
+}
+.price-hero__big { font-family: 'Oswald', sans-serif; font-size: clamp(30px, 5vw, 48px); font-weight: 700; color: var(--orange); line-height: 1; }
+.price-hero__sub { color: var(--text-muted); margin-top: 10px; font-size: 15px; }
+.price-hero__factors-title { font-weight: 700; margin-bottom: 12px; }
+.price-hero__factors li { position: relative; padding-left: 26px; margin-bottom: 9px; }
+.price-hero__factors li::before { content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; background: var(--orange); border-radius: 2px; transform: rotate(45deg); }
+
+/* Отзывы */
+.reviews__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.review { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+.review__stars { color: #ffb400; letter-spacing: 2px; margin-bottom: 12px; font-size: 18px; }
+.review__text { color: var(--text); }
+.review__author { margin-top: 16px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.review__author small { color: var(--text-muted); font-weight: 500; }
+.reviews__note {
+    margin-top: 26px; text-align: center; color: var(--text-muted); font-size: 15px;
+    background: var(--surface-2); border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 18px;
+}
+
+/* FAQ */
+.faq { max-width: 840px; margin: 0 auto; }
+.faq__item { border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 12px; background: #fff; overflow: hidden; }
+.faq__q {
+    width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+    padding: 20px 22px; font-family: inherit; font-size: 17px; font-weight: 700; color: var(--text);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.faq__q svg { width: 24px; height: 24px; flex-shrink: 0; color: var(--orange); transition: var(--transition); }
+.faq__item.open .faq__q svg { transform: rotate(45deg); }
+.faq__a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq__a p { padding: 0 22px 20px; color: var(--text-muted); }
+
+/* Контакты + карта */
+.contacts__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 32px; align-items: stretch; }
+.contacts__list li { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+.contacts__list svg { width: 24px; height: 24px; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
+.contacts__list b { display: block; font-size: 15px; }
+.contacts__list a, .contacts__list span { color: var(--text-muted); }
+.contacts__list a:hover { color: var(--orange); }
+.contacts__map { border-radius: var(--radius); overflow: hidden; min-height: 340px; border: 1px solid var(--border); }
+.contacts__map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; }
+
+/* Текстовое поле в форме */
+.lead-form__input--area { height: auto; min-height: 92px; padding: 14px 18px; resize: vertical; line-height: 1.5; }
+
+/* Правовые ссылки в подвале */
+.footer__legal a { display: block; margin-bottom: 10px; transition: var(--transition); }
+.footer__legal a:hover { color: var(--orange); }
+
+/* Адаптив лендинга */
+@media (max-width: 992px) {
+    .hero__grid { grid-template-columns: 1fr; gap: 30px; }
+    .hero__media { order: -1; max-width: 520px; }
+    .problems__grid { grid-template-columns: repeat(2, 1fr); }
+    .equip-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps__grid { grid-template-columns: repeat(2, 1fr); gap: 26px 20px; }
+    .price-hero { grid-template-columns: 1fr; gap: 24px; }
+    .reviews__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+    .contacts__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+    .problems__grid { grid-template-columns: 1fr; }
+    .equip-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .steps__grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+    .price-hero { padding: 26px 20px; }
+}
