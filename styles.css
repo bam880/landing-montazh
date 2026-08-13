@@ -753,6 +753,13 @@ ul { list-style: none; }
     .hero__actions, .cta__actions { flex-direction: column; }
     .hero__actions .btn, .cta__actions .btn { width: 100%; }
 
+    /* Компактнее на телефоне */
+    .section__head { margin-bottom: 36px; }
+    .guarantee { gap: 16px; }
+    .guarantee__item { padding: 26px 22px; }
+    .guarantee__item h3 { font-size: 20px; }
+    .hero__foot { justify-content: flex-start; }
+
     /* Нижняя панель вместо плавающей кнопки */
     .mobile-bar { display: flex; }
     .wa-float { display: none; }
@@ -1105,8 +1112,8 @@ ul { list-style: none; }
 
 /* Адаптив лендинга */
 @media (max-width: 992px) {
-    .hero__grid { grid-template-columns: 1fr; gap: 30px; }
-    .hero__media { order: -1; max-width: 520px; }
+    .hero__grid { grid-template-columns: 1fr; gap: 28px; }
+    .hero__media { max-width: 560px; margin: 0 auto; }
     .problems__grid { grid-template-columns: repeat(2, 1fr); }
     .equip-grid { grid-template-columns: repeat(2, 1fr); }
     .steps__grid { grid-template-columns: repeat(2, 1fr); gap: 26px 20px; }
