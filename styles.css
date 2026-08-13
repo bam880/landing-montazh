@@ -794,16 +794,6 @@ ul { list-style: none; }
 .breadcrumbs a:hover { color: #fff; }
 .breadcrumbs span { color: var(--orange); }
 
-/* Hero страницы услуги */
-.hero--service {
-    background:
-        linear-gradient(180deg, rgba(15, 20, 25, 0.86) 0%, rgba(15, 20, 25, 0.90) 100%),
-        linear-gradient(90deg, rgba(15, 20, 25, 0.92) 0%, rgba(15, 20, 25, 0.55) 60%, rgba(15, 20, 25, 0.4) 100%),
-        url("assets/img/prochistka-hero.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
 /* Блок описания услуги */
 .about__grid {
     display: grid;
